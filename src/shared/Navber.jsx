@@ -22,6 +22,14 @@ const Navbar = () => {
         Menu
       </NavLink>
       <NavLink
+        to="/order"
+        className={({ isActive }) => {
+          return isActive ? 'bg-white text-[16px] py-2 px-5 text-black font-semibold' : 'font-semibold py-2 px-5 text-[16px] ';
+        }}
+      >
+        Order
+      </NavLink>
+      <NavLink
         to="/login"
         className={({ isActive }) => {
           return isActive ? 'bg-white text-[16px] py-2 px-5 text-black font-semibold' : 'font-semibold py-2 px-5 text-[16px] ';

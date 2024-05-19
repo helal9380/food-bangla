@@ -6,7 +6,7 @@ const Cover = ({ img, title }) => {
       bgImage={img}
       blur={{ min: -50, max: 50 }}>
       <div style={{ height: 500 }}>
-        <div>
+        <div className="">
           <div
             className="hero h-[500px]"
             >
