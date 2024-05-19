@@ -2,18 +2,12 @@
 
 import { useEffect, useState } from "react";
 import SectionTitle from "./SectionTitle";
+import useMenu from "../Hook/useMenu";
 
 const Populer = () => {
-  const [populer, setPopuler] = useState([]);
-
-  useEffect(() => {
-    fetch("menu.json")
-      .then((res) => res.json())
-      .then((data) => {
-        const filters = data.filter((item) => item.category === "popular");
-        setPopuler(filters);
-      });
-  }, []);
+  const [populer] = useMenu();
+  const filter = populer.filter(item => item.category === 'popular')
+  
   return (
     <div className="my-10 px-10">
       <SectionTitle
@@ -21,7 +15,7 @@ const Populer = () => {
         subHeading={"FROM OUR MENU"}></SectionTitle>
       <div className="grid grid-cols-1 mt-5 md:grid-cols-2 gap-3">
         {
-            populer.map(item => (
+            filter.map(item => (
                 <div key={item._id}>
                     <div className="flex gap-5">
                         <img style={{borderRadius: '0 100% 100% 100%'}} className="w-[100px]" src={item.image} alt="" />
