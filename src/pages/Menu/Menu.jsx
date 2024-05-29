@@ -28,14 +28,14 @@ const Menu = () => {
         {" "}
       </SectionTitle>
       <MenuCategory
-      titel={'Our Menu'}
+      title={'Our Menu'}
         items={offered}
         ></MenuCategory>
         {/* our dessarts */}
-        <MenuCategory items={dessart} coverimg={dessartImg} titel={'Dessarts'}></MenuCategory>
-        <MenuCategory items={pizza} coverimg={pizzaImg} titel={'PIZZAS'}></MenuCategory>
-        <MenuCategory items={soup} coverimg={saladImg} titel={'SOUP'}></MenuCategory>
-        <MenuCategory items={salad} coverimg={soupImg} titel={'SALAD'}></MenuCategory>
+        <MenuCategory items={dessart} coverimg={dessartImg} title={'dessarts'}></MenuCategory>
+        <MenuCategory items={pizza} coverimg={pizzaImg} title={'pizza'}></MenuCategory>
+        <MenuCategory items={soup} coverimg={saladImg} title={'soup'}></MenuCategory>
+        <MenuCategory items={salad} coverimg={soupImg} title={'salad'}></MenuCategory>
     </div>
   );
 };

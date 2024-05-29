@@ -1,12 +1,13 @@
+import { Link } from "react-router-dom";
 import Cover from "./Cover";
 
 
-const MenuCategory = ({items,titel, coverimg}) => {
+const MenuCategory = ({items, title, coverimg}) => {
     console.log(items);
     return (
         
        <div>
-        { coverimg && <Cover img={coverimg} title={titel}></Cover>}
+        { coverimg && <Cover img={coverimg} title={title}></Cover>}
          <div className="grid grid-cols-1 max-w-screen-lg mx-auto mt-5 mb-10 md:grid-cols-2 gap-3">
         {
             items.map(item => (
@@ -22,6 +23,9 @@ const MenuCategory = ({items,titel, coverimg}) => {
                 </div>
             ))
         }
+      </div>
+      <div className="flex justify-center my-10">
+      <Link to={`/order/${title}`}><button className="btn btn-outline  border-0 mx-auto border-b-2 mt-2">Order Now</button></Link>
       </div>
        </div>
     );

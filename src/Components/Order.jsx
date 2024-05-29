@@ -6,7 +6,14 @@ import Cover from "./Cover";
 import coverImg from "../assets/shop/banner2.jpg";
 import useMenu from "../Hook/useMenu";
 import FoodCard from "./FoodCard";
+import { useState } from "react";
+import { useParams } from "react-router-dom";
+
 const Order = () => {
+    const categories = ['pizza', 'dessart', 'salad', 'soup', 'offered', 'drinks']
+    const {category} = useParams();
+    const initializeIndex = categories.indexOf(category)
+    const [tabIndex, setTabIndex] = useState(initializeIndex);
     const [menus] = useMenu();
     const dessart = menus.filter((item) => item.category === "dessert");
     const pizza = menus.filter((item) => item.category === "pizza");
@@ -14,12 +21,14 @@ const Order = () => {
     const offered = menus.filter((item) => item.category === "offered");
     const soup = menus.filter((item) => item.category === "soup");
     const drink = menus.filter((item) => item.category === "drinks");
+   
+    console.log(category);
   return (
     <div>
       <Cover
         img={coverImg}
         title={"Order Now"}></Cover>
-      <Tabs className="mt-10 max-w-screen-lg mx-auto">
+      <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)} className="mt-10 max-w-screen-lg mx-auto">
         <TabList>
           <Tab>PIZZA</Tab>
           <Tab>DESSART</Tab>
